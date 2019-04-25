@@ -1,12 +1,3 @@
-/**
- *  HttpUtils.java
- *  Date：12-6-27
- *  Time: 上午9:19
- *  Copyright 众邦金控科技有限公司 2012 版权所有
- */
-package com.zbjk.crc.utils.http;
-
-import com.zbjk.crc.utils.exception.NetServiceException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
@@ -48,11 +39,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * httpclient工具类
- *
- * @author zhangchanghong
- */
 public class HttpUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtils.class);
     private static final String CHARSET_UTF8 = "UTF-8";
@@ -239,22 +225,6 @@ public class HttpUtils {
         return retStr;
     }
     
-    /**
-     * 发送HTTP_POST_SSL请求
-     * @see 1)该方法会自动关闭连接,释放资源
-     * @see 2)该方法亦可处理普通的HTTP_POST请求
-     * @see 3)方法内设置了连接和读取超时时间,单位为毫秒,超时后方法会自动返回空字符串
-     * @see 4)请求参数含中文等特殊字符时,可在传入前自行<code>URLEncoder.encode(string,encodeCharset)</code>,再指定encodeCharset为null
-     * @see 5)亦可指定encodeCharset参数值,由本方法代为编码
-     * @see 6)该方法在解码响应报文时所采用的编码,为响应消息头中[Content-Type:text/html; charset=GBK]的charset值
-     * @see   若响应消息头中未指定Content-Type属性,则默认使用HttpClient内部默认的ISO-8859-1
-     * @see 7)若reqURL的HTTPS端口不是默认的443,那么只需要在reqURL中指明其实际的HTTPS端口即可,而无需修改本方法内部指定的443
-     * @see   此时,方法默认会取指明的HTTPS端口进行连接.如reqURL=https://123.125.97.66:8085/pay/则实际请求即对方HTTPS_8085端口
-     * @param reqURL        请求地址
-     * @param params        请求参数
-     * @param encodeCharset 编码字符集,编码请求数据时用之,其为null表示请求参数已编码完毕,不需要二次编码
-     * @return 远程主机响应正文
-     */
     public static String sendPostSSLRequest(String reqURL, Map<String, String> params, String encodeCharset){
         String responseContent = "";
         HttpClient httpClient = new DefaultHttpClient();
