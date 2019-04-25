@@ -1,6 +1,3 @@
-package com.zbjk.crc.utils.http;
-
-import com.zbjk.crc.utils.JsonUtil;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
